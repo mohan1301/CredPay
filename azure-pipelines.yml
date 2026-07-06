@@ -66,13 +66,13 @@ stages:
               backendAzureRmStorageAccountName: 'credpaystorageaccount'
               backendAzureRmContainerName: 'credpaysacontainer'
               backendAzureRmKey: 'terraform.tfstate'
-          # - task: TerraformTask@5
-          #   inputs:
-          #     provider: 'azurerm'
-          #     command: 'apply'
-          #     workingDirectory: 'Terraform'
-          #     commandOptions: '--auto-approve'
-          #     environmentServiceNameAzureRM: 'credpayserviceconnection'
+          - task: TerraformTask@5
+            inputs:
+              provider: 'azurerm'
+              command: 'apply'
+              workingDirectory: 'Terraform'
+              commandOptions: '--auto-approve'
+              environmentServiceNameAzureRM: 'credpayserviceconnection'
 
 
 
