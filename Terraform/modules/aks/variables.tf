@@ -29,7 +29,7 @@ variable "maximum_node_count" {
 variable "aks_node_vm_size"{
     type = string
 }
-variable "aks_subnet_prefix"{
+variable "aks_subnet_id"{
     type = string
 }
 

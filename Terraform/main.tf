@@ -58,5 +58,5 @@ module "aks" {
   maximum_node_count         = var.maximum_node_count
   aks_node_vm_size           = var.aks_node_vm_size
   log_analytics_workspace_id = module.monitoring.workspace_id
-  aks_subnet_prefix          = var.aks_subnet_prefix["aks_subnet"]
+  aks_subnet_id              = module.vnet.aks_subnet_id
 }

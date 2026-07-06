@@ -13,13 +13,12 @@ resource "azurerm_kubernetes_cluster" "aks" {
   local_account_disabled            = false
   node_resource_group = "${var.name_prefix}-aks-nodes"
     default_node_pool {
-        name            = "${var.name_prefix}-np"
+        name            = "${var.name_prefix}np"
         node_count      = var.aks_node_count
         vm_size         = var.aks_node_vm_size
         min_count       = var.minimum_node_count
         max_count       = var.maximum_node_count
-        #vnet_subnet_id  = azurerm_subnet.aks_subnet.id
-        vnet_subnet_id  = var.aks_subnet_prefix
+        vnet_subnet_id  = var.aks_subnet_id
         os_sku = "Ubuntu"
         max_pods = 60
         type = "VirtualMachineScaleSets"
