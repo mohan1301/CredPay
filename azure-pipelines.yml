@@ -64,7 +64,7 @@ stages:
               backendServiceArm: 'credpayserviceconnection'
               backendAzureRmResourceGroupName: 'CredPay'
               backendAzureRmStorageAccountName: 'credpaystorageaccount'
-              backendAzureRmContainerName: 'credpaystorageaccount'
+              backendAzureRmContainerName: 'credpaysacontainer'
               backendAzureRmKey: 'terraform.tfstate'
           # - task: TerraformTask@5
           #   inputs:
