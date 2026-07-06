@@ -1,67 +1,88 @@
-#region variable
+# =====================================================================
+# CredPay - Input Variables
+# =====================================================================
+
+# Azure Subscription ID
+variable "subscription_id" {
+  type = string
+}
+
+# Azure Region (e.g. eastus)
 variable "location" {
   type    = string
   default = "canadacentral"
 }
 
-variable "resource_group_name" {
-  type    = string
-  default = "credpay-rg"
-}
-#Network Variables
-variable "address_space" {
+# ----- Networking -----
+
+# Virtual Network address range
+variable "vnet_address_space" {
   type    = string
   default = "10.0.0.0/16"
 }
 
+# AKS subnet address range
 variable "aks_subnet_prefix" {
   type    = string
-  default = "10.0.1.0/20"
+  default = "10.0.0.0/20"
 }
 
+# PostgreSQL subnet address range
 variable "postgres_subnet_prefix" {
   type    = string
-  default = "10.0.2.0/24"
+  default = "10.0.16.0/24"
 }
 
-#AKS
-variable "aks_node_count" {
+# ----- AKS -----
+
+# Number of nodes to start with
+variable "node_count" {
   type    = number
   default = 3
 }
 
-variable "minimum_node_count" {
+# Minimum nodes for autoscaling
+variable "node_min_count" {
   type    = number
   default = 2
 }
 
-variable "maximum_node_count" {
+# Maximum nodes for autoscaling
+variable "node_max_count" {
   type    = number
   default = 5
 }
 
-variable "aks_node_vm_size" {
+# Size of each AKS node (VM)
+variable "vm_size" {
   type    = string
   default = "Standard_D2alds_v6"
 }
 
-#Postgres variables
+# ----- PostgreSQL -----
+
+# PostgreSQL major version
 variable "postgres_version" {
-  type    = number
-  default = 18
+  type    = string
+  default = "18"
 }
 
-variable "post_admin_username" {
+# PostgreSQL admin username
+variable "postgres_admin_username" {
   type    = string
   default = "credpayadmin"
 }
 
+# Database name
 variable "database_name" {
   type    = string
   default = "credpay"
 }
 
-variable "log_rentention_days" {
+# ----- Monitoring -----
+
+# Log Analytics retention in days
+variable "log_retention_days" {
   type    = number
   default = 30
 }

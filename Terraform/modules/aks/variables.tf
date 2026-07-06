@@ -1,38 +1,50 @@
 variable "name_prefix" {
-  type = string
-}
-
-variable "location" {
-  type = string
+  description = "Naming prefix (project-environment)."
+  type        = string
 }
 
 variable "resource_group_name" {
-  type = string
+  description = "Resource group name."
+  type        = string
+}
+
+variable "location" {
+  description = "Azure region."
+  type        = string
+}
+
+variable "node_count" {
+  description = "Initial node count."
+  type        = number
+}
+
+variable "node_min_count" {
+  description = "Autoscaler minimum node count."
+  type        = number
+}
+
+variable "node_max_count" {
+  description = "Autoscaler maximum node count."
+  type        = number
+}
+
+variable "vm_size" {
+  description = "Node VM size."
+  type        = string
+}
+
+variable "vnet_subnet_id" {
+  description = "Subnet ID for AKS nodes/pods."
+  type        = string
+}
+
+variable "log_analytics_workspace_id" {
+  description = "Log Analytics workspace ID for Container Insights."
+  type        = string
 }
 
 variable "tags" {
-    type = map(string)
-}
-
-variable "aks_node_count"{
-    type = number
-}
-
-variable "minimum_node_count" {
-  type = number
-}
-
-variable "maximum_node_count" {
-  type = number
-}
-
-variable "aks_node_vm_size"{
-    type = string
-}
-variable "aks_subnet_id"{
-    type = string
-}
-
-variable "log_analytics_workspace_id"{
-    type = string
+  description = "Tags to apply."
+  type        = map(string)
+  default     = {}
 }
