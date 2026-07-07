@@ -40,3 +40,5 @@ override.tf.json
 # Terraform plan files
 # Binary plan files can be large and may contain sensitive information.
 *.tfplan
+
+.vscode/settings.json
